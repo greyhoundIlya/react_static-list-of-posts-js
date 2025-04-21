@@ -3,21 +3,21 @@ import './PostInfo.scss';
 import UserInfo from '../UserInfo/UserInfo';
 import CommentList from '../CommentList/CommentList';
 
-const PostInfo = ({ post }) => (
+const PostInfo = ({ posts }) => (
   <div className="PostInfo">
     <div className="PostInfo__header">
-      <h3 className="PostInfo__title">{post.title}</h3>
+      <h3 className="PostInfo__title">{posts.title}</h3>
       <p>
         {' Posted by '}
-        <UserInfo user={post.user} />
+        <UserInfo user={posts.user} />
       </p>
     </div>
 
-    <p className="PostInfo__body">{post.body}</p>
+    <p className="PostInfo__body">{posts.body}</p>
     <hr />
 
-    {post.comments.length > 0 ? (
-      <CommentList comments={post.comments} />
+    {posts.comments && posts.comments.length > 0 ? (
+      <CommentList comments={posts.comments} />
     ) : (
       <b data-cy="NoCommentsMessage">No comments yet</b>
     )}

@@ -1,11 +1,13 @@
-import PostInfo from '../PostInfo/PostInfo';
+import { PostInfo } from '../PostInfo';
 
-const PostList = ({ posts }) => (
-  <div className="PostList">
-    {posts.map(post => (
-      <PostInfo posts={post} key={post.id} />
-    ))}
-  </div>
-);
+function PostList({ posts }) {
+  return (
+    <div>
+      {posts.map(post => (
+        <PostInfo key={post.id} post={post} />
+      ))}
+    </div>
+  );
+}
 
 export default PostList;
